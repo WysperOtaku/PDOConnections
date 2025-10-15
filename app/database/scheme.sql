@@ -1,0 +1,11 @@
+-- BASE DE DATOS DEL PROYECTO DE CONNECTIONS PHP
+CREATE DATABASE IF NOT EXISTS usuariosdb;
+USE usuariosdb;
+
+CREATE TABLE usuarios (
+    user_id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    nombre      VARCHAR(50) NOT NULL,
+    apellido    VARCHAR(50) NOT NULL,
+    email       VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_usuarios PRIMARY KEY (user_id)
+);
