@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to UsuariosDB!</title>
-    <link rel="stylesheet" type="text/css" href="/app/public/style/style.css">
+    <link rel="stylesheet" type="text/css" href="public/style/style.css">
 </head>
 <body>
     <h1>Bienvenido a la practica de PDOConnections!</h1>
