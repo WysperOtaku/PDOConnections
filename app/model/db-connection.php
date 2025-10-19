@@ -12,7 +12,7 @@
                 ]);
 
             } catch (Exception $e) {
-                throw new PDOException("Conexion a la BBDD fallida");
+                throw new DBErrorException("Conexion a la BBDD fallida");
             }
         }
 
@@ -34,7 +34,7 @@
                 ]);
 
             } catch (Exception $e) {
-                throw new PDOException("Conexion a la BBDD fallida");
+                throw new DBErrorException("Conexion a la BBDD fallida");
             }
         }
     }
