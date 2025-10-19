@@ -10,12 +10,7 @@
             if (!empty($id_user)) $this->user_id = $id_user;
             $this->nombre = $nombre_user;
             $this->apellido = $apellido_user;
-            if (preg_match("/^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i", $email_user)) {
-                $this->email = $email_user;
-            }
-            else{
-                throw new InvalidArgumentException("Email invalid");
-            }
+            $this->email = $email_user;
         }
 
         public function getId() {
