@@ -31,7 +31,9 @@
                 ");
 
                 $stmt->execute([$uid]);
-                return $stmt->fetchObject(User::class);
+                $r = $stmt->fetchObject(User::class);
+                if ($r) return $r;
+                else return null;
             } catch (PDOException $e) {
                 throw new DBErrorException("Error encontrando usuario: " . $e->getMessage());
             }
@@ -47,13 +49,15 @@
                 ");
 
                 $stmt->execute([$userEmail]);
-                return $stmt->fetchObject(User::class);
+                $r = $stmt->fetchObject(User::class);
+                if ($r) return $r;
+                else return null;
             } catch(PDOException $e) {
                 throw new DBErrorException("Error encontrando usuario: " . $e->getMessage());
             }
         }
 
-        public function findAll() : array {
+        public function findAll() : array | null {
             try {
                 $pdo = $this->con->getConnection();
                 $stmt = $pdo->query("
@@ -63,8 +67,8 @@
 
                 $stmt->execute();
                 $users = $stmt->fetchAll(PDO::FETCH_CLASS, User::class);
-
-                return $users;
+                if ($users) return $users;
+                else return null;
             } catch (PDOException $e) {
                 throw new DBErrorException("No se ha podido consultar usuarios: " . $e->getMessage());
             }

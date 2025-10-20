@@ -32,7 +32,7 @@ Class UserService {
         });
     }
 
-    public function searchAllUsers(): array {
+    public function searchAllUsers(): array | null {
         return $this->tx(function() {
             $result = $this->dao->findAll();
             return $result;
