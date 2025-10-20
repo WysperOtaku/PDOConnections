@@ -9,9 +9,11 @@
 <body>
     <h1>Bienvenido a la practica de PDOConnections!</h1>
     <h3>Selecciona que operacion quieres hacer:</h3>
-    <a href="app/view/insert_view.php"><button type="button" name="Insert">Insertar Usuario</button></a>
-   <a href="app/view/update_view.php"><button type="button" name="Update">Actualizar Usuario</button></a>
-   <a href="app/view/delete_view.php"><button type="button" name="Delete">Eliminar Usuario</button></a>
-   <a href="app/view/read_view.php"><button type="button" name="Read">Consultar Usuario</button></a>
+    <form method="POST">
+        <button type="submit" name="insert_form">Insertar Usuario</button>
+        <button type="submit" name="update_form">Actualizar Usuario</button>
+        <button type="submit" name="delete_form">Borrar Usuario</button>
+        <button type="submit" name="read_form">Consultar Usuario</button>
+    </form>
 </body>
 </html>
