@@ -32,6 +32,13 @@ Class UserService {
         });
     }
 
+    public function searchAllUsers(): array {
+        return $this->tx(function() {
+            $result = $this->dao->findAll();
+            return $result;
+        });
+    }
+
     public function updateUser(int $uid, string $nombre, string $apellido, string $email) {
         // Mini verificaciones del input
         if (!preg_match("/^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i", $email) || ($nombre == '' || $apellido == '')) {
