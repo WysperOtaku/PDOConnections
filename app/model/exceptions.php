@@ -1,7 +1,6 @@
 <?php
 
 // Errores capa de aplicacion
-class DomainException extends LogicException {}
 class EmailInUseException extends DomainException {}
 class UserNotFoundException extends DomainException {}
 

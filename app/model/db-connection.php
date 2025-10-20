@@ -2,10 +2,12 @@
     class Connection {
         private $pdo;
 
-        public function __construct($dbname ,$username, $passwd) {
+        public function __construct(array $conf) {
             try{
-                $dsn = `mysql:host=localhost;dbname={$dbname};charset=utf8mb4`;
-                $this->pdo = new PDO($dsn, $username, $passwd, [
+                $dsn = sprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s',
+                    $conf['host'], $conf['port'], $conf['name'], $conf['charset']
+                );
+                $this->pdo = new PDO($dsn, $conf['user'], $conf['pass'], [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES   => false,
@@ -24,10 +26,12 @@
             $this->pdo = null;
         }
 
-        public function connect($dbname ,$username, $passwd) {
+        public function connect(array $conf) {
             try{
-                $dsn = `mysql:host=localhost;dbname={$dbname};charset=utf8mb4`;
-                $this->pdo = new PDO($dsn, $username, $passwd, [
+                $dsn = sprintf('mysql:host=%s;port=%d;dbname=%s;charset=%s',
+                    $conf['host'], $conf['port'], $conf['name'], $conf['charset']
+                );
+                $this->pdo = new PDO($dsn, $conf['user'], $conf['pass'], [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES   => false,
