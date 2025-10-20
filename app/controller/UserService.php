@@ -20,7 +20,8 @@ Class UserService {
 
             if ($exists) throw new EmailInUseException("Email ya en uso");
 
-            $usuario = new User(null, $nombre, $apellido, $email);
+            $usuario = new User;
+            $usuario->init(null, $nombre, $apellido, $email);
             $this->dao->insert($usuario);
         });
     }
@@ -51,7 +52,8 @@ Class UserService {
             $e_exists = $this->dao->findByEmail($email);
             if ($e_exists) throw new EmailInUseException("El email al que quieres cambiar ya esta en uso");
 
-            $new_user_info = new User($uid, $nombre, $apellido, $email);
+            $new_user_info = new User;
+            $new_user_info->init($uid, $nombre, $apellido, $email);
             $this->dao->update($new_user_info);
         });
     }

@@ -5,12 +5,13 @@
         private string $apellido;
         private string $email;
 
-        public function __construct(?int $id_user, string $nombre_user, string $apellido_user, string $email_user) 
-        {   
-            if (!empty($id_user)) $this->user_id = $id_user;
-            $this->nombre = $nombre_user;
-            $this->apellido = $apellido_user;
-            $this->email = $email_user;
+        public function __construct() {}
+
+        public function init(?int $id, string $nombre, string $apellido, string $email): void {
+            if (!empty($id)) $this->user_id = $id;
+            $this->nombre = $nombre;
+            $this->apellido = $apellido;
+            $this->email = $email;
         }
 
         public function getId() {
