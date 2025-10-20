@@ -80,7 +80,7 @@
                 $stmt = $pdo->prepare("
                     UPDATE usuarios
                         SET nombre = :nombre, apellido = :apellido, email = :email
-                    WHERE id = :id;
+                    WHERE user_id = :id;
                 ");
                 $stmt->execute([
                     ':nombre' => $u->getNombre(),
@@ -97,7 +97,7 @@
             try {
                 $pdo = $this->con->getConnection();
                 $stmt = $pdo->prepare("
-                    DELETE FROM usuarios WHERE id = ?;
+                    DELETE FROM usuarios WHERE user_id = ?;
                 ");
                 $stmt->execute([$uid]);
             } catch(PDOException $e) {
